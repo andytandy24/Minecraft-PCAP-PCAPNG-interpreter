@@ -34,7 +34,7 @@ cap = pyshark.FileCapture(inputFile, display_filter=f'tcp.payload[2] == {args.pa
 
 for packet in cap:
     packetId = "".join(packet['tcp'].segment_data.split(":")[2])
-    packet = " ".join(packet['tcp'].segment_data.split(":")[12:])
+    packet = " ".join(packet['tcp'].segment_data.split(":")[3:])
     print(f'Packet ID: 0x{packetId}\nPacket: {packet}\n')
 
 cap.close()
